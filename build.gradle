@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+      maven {
+        url "https://plugins.gradle.org/m2/"
+      }
+      mavenCentral()
+    }
+    dependencies {
+   		classpath "gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.20.1"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'com.palantir.docker'
+
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile 'junit:junit:4.12'
+	compile 'io.rest-assured:rest-assured:3.1.1'
+  	compile 'io.rest-assured:json-path:3.1.1'
+  	compile 'io.rest-assured:xml-path:3.1.1'
+}
+
+sourceSets {
+	main {
+		java {srcDir 'src/main/java'}
+		resources {srcDir 'src/main/resources'}
+	}
+	test {
+		java {srcDir 'stc/test/java'}
+		resources {srcDir 'src/test/resources'}
+	}
+}
