@@ -5,6 +5,10 @@ gradle wrapper
 ./gradlew clean test
 ```
 
-## todo
-docker
+## docker run
+```
+cd api-test
+docker build -t api-test:1.0 .
+docker run -t api-test:1.0
+```
 
