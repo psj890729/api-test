@@ -5,7 +5,7 @@ gradle wrapper
 ./gradlew clean test
 ```
 
-## docker run
+# docker run
 ```
 cd api-test
 docker build -t api-test:1.0 .
