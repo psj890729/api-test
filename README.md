@@ -37,4 +37,14 @@ job_1:
   - cd api-test 
   - gradle wrapper 
   - ./gradlew clean test
+  
+  artifacts:
+    when: always
+    reports:
+      junit: api-test/build/test-results/test/TEST-*.xml
+    paths:
+    - api-test/build/reports/
+    expire_in: 1 week
+
+  
 ```
