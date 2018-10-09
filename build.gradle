@@ -40,3 +40,11 @@ sourceSets {
 		resources {srcDir 'src/test/resources'}
 	}
 }
+
+
+test {
+    reports {
+        junitXml.enabled = true
+        html.enabled = true
+    }               
+}
