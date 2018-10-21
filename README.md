@@ -1,3 +1,4 @@
+
 # gradle run
 ```
 # base url 넣어야 함
@@ -33,18 +34,26 @@ job_1:
   only:
   - master
   script:
-  - git clone https://github.com/psj890729/api-test.git
-  - cd api-test 
-  - gradle wrapper 
-  - ./gradlew clean test
+  - gradle test 
   
   artifacts:
     when: always
     reports:
-      junit: api-test/build/test-results/test/TEST-*.xml
+      junit: /build/test-results/test/TEST-*.xml
     paths:
-    - api-test/build/reports/
+    - /build/reports/
     expire_in: 1 week
+
+
+java3:
+  stage: test
+  script:
+  - gradle test --tests *sampleTest
+  artifacts:
+    reports:
+      junit: build/test-results/test/TEST-*.xml
+  tags:
+  - apitest
 
   
 ```
