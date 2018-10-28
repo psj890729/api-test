@@ -54,6 +54,30 @@ java3:
       junit: build/test-results/test/TEST-*.xml
   tags:
   - apitest
+```
 
+```
+# docker in docker
+image: docker:git
+services:
+- docker:dind
+
+
+stages:
+- build
+- test
+
+before_script:
+- #script...
+
+job1:
+  stage: build
+  script:
+  - #script...
   
+job2:
+  stage: test
+  script:
+  - #script...
+
 ```
